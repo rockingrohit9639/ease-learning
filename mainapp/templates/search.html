@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% block title %} Search Results ({{ resources|length }}){% endblock title %}
+
+{% block body %}
+
+<style>
+    table 
+    {
+    border-collapse: collapse;
+    border-spacing: 0;
+    line-height: 2;
+    margin-bottom: 40px;
+    width: 100%;
+    white-space: normal;
+    }
+
+    tbody 
+    {
+        border: 1px solid #eee;
+    }
+    tr 
+    {
+        display: table-row;
+        vertical-align: inherit;
+        border-color: inherit;
+    }
+    td 
+    {
+        padding: 5px !important;
+    }
+
+</style>
+
+
+<div class="container  d-flex justify-content-center mt-3" style="height: 100vh;">
+{% if resources|length == 0 %}
+    <div class="row">
+        <div class="col md-12">
+            <hr>
+            <h1 class="text-center">Sorry we could not find any resources for you.</h1>
+        </div>
+
+        <div class="col-md-12">
+            {% if user.is_authenticated %}
+                <div class="text-center">
+                    <p class="d-inline-block text-muted">Please Tell Us What You Need.</p>
+                </div>
+                <div class="align-items-center">
+                    <div class="container justify-content-center">
+                    <form id="req_form" name="req_form" action="add_requirements" method="GET">
+                        <input type="text" id="name" name='name' class="form-control my-2" placeholder="Your name" required width="10">
+            
+                        <input type="text" id="email" name='email' placeholder="Your email id" class="form-control my-2" required>
+            
+                        <textarea type="text" id="req" name='req' rows="2" class="form-control md-textarea" placeholder="Your requirements." required></textarea>
+            
+                        <br>
+                        <button class="btn btn-danger mb-4">Submit</button>
+                    </form>
+                    </div>
+                </div>
+                {% else %}
+                <h3 class="text-center text-muted">Please Login or SignUp to send us your requirements</h3>
+                {% endif %}
+                <hr>
+        </div>
+    </div>
+    {% else %}
+
+    <div class="row">
+        <div class="col-md-12">
+            <table border="1">
+                <tbody>
+                <tr>
+                <td style="text-align: center;"><span style="color: #ff6600;"><strong>Get all resources here</strong></span></td>
+                <td style="text-align: center;"><span style="color: #ff6600;"><strong>Download Links</strong></span></td>
+                </tr>
+
+                {% for res in resources %}                
+                <tr>
+                <td width="312" class="text-center">{{ res.name }} {{ res.subject }} </td>
+                <td width="312" class="text-center">
+                    <a href="{{ res.file.url }}" target="_blank">View</a>
+                    <a href="{{ res.file.url }}" download class="px-2">Download</a>
+                </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+                </table>
+        </div>
+    </div>
+
+    {% endif %}
+    </div>
+
+
+{% endblock body %}

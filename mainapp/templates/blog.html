@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %} Blog | {% endblock title %}
+{% block active_blog %} active {% endblock active_blog %}
+{% load humanize %}
+{% block body %}
+
+<style>
+    .title{
+        color: #FF0035;
+    }
+    .card-body a{
+        text-decoration: none;
+    }
+
+    .title:hover{
+        color: #c9173a;
+    }
+
+</style>
+
+<div class="container mt-5 mb-5">
+{% for post in posts %}
+
+<div class="card mb-4">
+  <div class="card-header">
+    Post by {{ post.user }} ({{ post.date | naturaltime }})
+  </div>
+  <div class="card-body">
+    <a href="blog/{{ post.slug }}" class="title"><h5 class="card-title">{{ post.title }}</h5></a>
+    <h6> {{ post.subtitle }} </h6>
+    <p class="card-text">{{  post.description|slice:"0:100|safe" }}</p>
+    <a href="blog/{{ post.slug }}" class="btn btn-danger">Know More</a>
+  </div>
+</div>
+
+{% endfor %}
+</div>
+
+
+{% endblock body %}

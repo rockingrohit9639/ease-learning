@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% block title %} AboutUs {% endblock title %}
+{% block active_about %} active {% endblock active_about %}
+{% load static %}
+{% block body %} 
+
+<div class="container">
+    <div class="row mt-3">
+        <div class="col-md-12 text-center">
+            <h1>About Us</h1>
+            <hr>
+            <p>The thought of creating this website came in my mind when I was finding difficulties in searching for the resources like books and notes for my studies.
+              The idea of this website is simple but the aim behind it is big i.e. to available all the study resources to all the students at one place. So their time should not be wasted. 
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="text-center mt-4">Meet Some Faces</h1>
+            <hr class="w-75 mb-5">
+            <div class="card mb-3 style="max-width: 540px;"">
+                <div class="row no-gutters">
+                  <div class="col-md-4">
+                    <img src="{% static 'assets/img/dp1.jpg' %}" class="card-img" alt="Image1">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title"><strong> Rohit Kumar Saini </strong></h5>
+                      <p class="card-text">My name is Rohit Kumar Saini. I am 19 years old and currently doing BCA from ITS Ghaziabad. 
+                        I am very much interested in knowing more about new technologies, Programming Languages and other related fields to IT and CS when I was a child.
+                        Hence I have learnt many languages and also other technologies. Some of them are C, C++, Python (Django, Flask, PyGame, Tkinter etc.), HTML, CSS, JavaScript
+                        Flutter etc. Most of it I learnt it from YouTube and Google. 
+                        And I have learnt some lesson throughout my journey while learning i.e. <br> <b>"Never Stop Learning New Things."</b>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card mb-3 style="max-width: 540px;"">
+                <div class="row no-gutters">
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title"><strong> Lalit Singh</strong></h5>
+                      <p class="card-text">My name is Lalit Singh. I am 18 years old and currently doing BCA from ITS Ghaziabad.
+                        <br>I love to code but sometimes I suffer a lot while doing it, but then also I don't stop in between because of Rohit as he is the only
+                        one who motivates me a lot. <br>I am very much confident, consistent and have team building ability. At last but not least, I just want to say that <b>"If I can do it, then why can't you."</b>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <img src="{% static 'assets/img/dp2.jpg' %}" class="card-img" alt="Image2">
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
+    <div class="row">
+      
+      <div class="col-md-12 text-center mt-3">
+        <h1>Contact Us</h1>
+        <hr class="w-75">
+      </div>
+    </div>
+
+    <div class="row mb-4">
+      <div class="col-md-4 text-center">
+        <h5>Email</h5>
+        <p>rohitbhatwara1@gmail.com</p>
+      </div>
+      <div class="col-md-4 text-center">
+        <h2>OR</h2>
+      </div>
+      <div class="col-md-4 text-center">
+        <h5>Email</h5>
+        <p>lalitmail@gmail.com</p>
+      </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 text-center mt-3">
+            <h2>Thanks For Visiting Here</h2>
+            <p class="text-muted">If you think that there is something missed or should be replaced then please let us know.
+              It would be our pleasure. <br>
+              Hope you are finding it useful.
+            </p>
+            <hr class="w-75">
+        </div>
+
+        <div class="col-md-12">
+            <div class="align-items-center">
+                <div class="container justify-content-center">
+                <form id="feedback_form" name="feedback_form" action="feedback" method="GET">
+                    <input type="text" id="name" name='name' class="form-control my-2" placeholder="Your name" required width="10">     
+                    <input type="text" id="email" name='email' placeholder="Your email id" class="form-control my-2" required>        
+                    <textarea type="text" id="feedback" name='feedback' rows="2" class="form-control md-textarea" placeholder="Your Suggestions" required></textarea>
+                    <br>
+                    <button class="btn btn-danger mb-4">Submit</button>
+                </form>
+                </div>
+            </div>
+            <hr>
+    </div>
+    </div>
+
+
+</div>
+
+{% endblock body %}

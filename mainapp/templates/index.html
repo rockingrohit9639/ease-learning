@@ -1,0 +1,133 @@
+{% extends 'base.html' %} {% block title %} DigiLibs | Home {% endblock title %}
+{% block active_home %} active {% endblock active_home %} {% block body %}
+<style>
+  .section-dark,
+  .section-gold,
+  .section-image {
+    position: relative;
+  }
+  .section-dark {
+    background-color: #151f20;
+  }
+  .page-header {
+    background-color: #b2afab;
+    background-position: 50%;
+    background-size: cover;
+    min-height: 100vh;
+    max-height: 999px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+  }
+
+  *,
+  ::after,
+  ::before {
+    box-sizing: border-box;
+  }
+  .page-header .content-center {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    z-index: 3;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    width: 100%;
+  }
+  .button-primary {
+    border: none;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 35px;
+    color: #fff;
+    font-weight: 600;
+    background-color: #ff0035;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .type a {
+    text-decoration: none;
+  }
+
+  .button-primary:hover {
+    font-size: 37px;
+    color: #ff0035;
+    background-color: #fff;
+    transition: 0.4s all;
+  }
+
+  .button-primary:not(:hover) {
+    font-size: 35px;
+    color: #fff;
+    background-color: #ff0035;
+    transition: 0.4s all;
+  }
+  .presentation-title {
+    color: black;
+  }
+  .str {
+    color: blue;
+    text-shadow: 2px 2px 2px black;
+  }
+</style>
+
+<div class="wrapper">
+  <div
+    class="page-header section-dark"
+    style="background-image: url('../static/assets/img/bg.jpg')"
+  >
+    <div class="content-center">
+      <div class="container">
+        <div class="title-brand">
+          <h1 class="presentation-title" style="margin-bottom: 2em;">
+            The Best Place To Find Best <strong class="str"> Resources </strong>
+          </h1>
+          <div class="type" style="background-color: red; padding: 10px;">
+            <h4 id="quotes" style="font-size: 3rem;"></h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  var now = new Date();
+  var dd = now.getDate();
+
+  var elem = document.getElementById("quotes");
+  if (dd == 1) elem.innerHTML = '"An investment in knowledge pays the best interest. <b> –  Benjamin Franklin</b>"';
+  else if (dd == 2) elem.innerHTML = '"Change is the end result of all true learning. <b> – Leo Buscaglia </b>"';
+  else if (dd == 3) elem.innerHTML = '"The roots of education are bitter, but the fruit is sweet. <b> – Aristotle </b>"';
+  else if (dd == 4) elem.innerHTML = '"Education is what remains after one has forgotten what one has learned in school. <b> – Albert Einstein</b>"';
+  else if (dd == 5) elem.innerHTML = '"Education is the passport to the future, for tomorrow belongs to those who prepare for it today. <b>– Malcolm X</b>"';
+  else if (dd == 6) elem.innerHTML = '"The more that you read, the more things you will know, the more that you learn, the more places you’ll go. <b>– Dr. Seuss</b>"';
+  else if (dd == 7) elem.innerHTML = '"Live as if you were to die tomorrow. Learn as if you were to live forever.<b> ― Mahatma Gandhi</b>"';
+  else if (dd == 8) elem.innerHTML = '"The learning process continues until the day you die.<b> – Kirk Douglas </b>"';
+  else if (dd == 9) elem.innerHTML = '"Education is not the filling of a pail, but the lighting of a fire.<b> ― W.B. Yeats</b>"';
+  else if (dd == 10) elem.innerHTML = '"Develop a passion for learning. If you do, you will never cease to grow. <b>– Anthony J. D’Angelo</b>"';
+  else if (dd == 11) elem.innerHTML = '"Education is not preparation for life, Education is life itself.<b> – John Dewey </b>"';
+  else if (dd == 12) elem.innerHTML = '"A person who won’t read has no advantage over one who can’t read. <b> – Mark Twain </b>"';
+  else if (dd == 13) elem.innerHTML = '"They know enough who know how to learn. <b> – Henry Adams </b>"';
+  else if (dd == 14) elem.innerHTML = '"Learning is like rowing upstream, not to advance is to drop back. </b>– Chinese proverb</b>"';
+  else if (dd == 15) elem.innerHTML = '"Nine-tenths of education is encouragement. <b>– Anatole France</b>"';
+  else if (dd == 16) elem.innerHTML = '"Man can learn nothing except by going from the known to the unknown. <b> – Claude Bernard</b>"';
+  else if (dd == 17) elem.innerHTML = '"Education is the ability to listen to almost anything without losing your temper or your self-confidence.<b> ― Robert Frost"';
+  else if (dd == 18) elem.innerHTML = '"Learning is not attained by chance, it must be sought for with ardor and attended to with diligence. <b>- Abigail Adams</b>"';
+  else if (dd == 19) elem.innerHTML = '"Educating the mind without educating the heart is no education at all." <b> ― Aristotle </b>';
+  else if (dd == 20) elem.innerHTML = '"I was reading the dictionary. I thought it was a poem about everything. <b>– Steven Wright</b>"';
+  else if (dd == 21) elem.innerHTML = '"The man who reads nothing at all is better educated than the man who reads nothing but newspapers.<b> ― Thomas Jefferson</b>"';
+  else if (dd == 22) elem.innerHTML = '"Learning is not compulsory. Neither is survival.- <b> Dr. W. Edwards Deming</b>"';
+  else if (dd == 23) elem.innerHTML = '"Learning is not the product of teaching. Learning is the product of the activity of learners. <b>- John Holto </b>"';
+  else if (dd == 24) elem.innerHTML = '"Take the attitude of a student, never be too big to ask questions, never know too much to learn something new. – <b> Og Mandino </b>"';
+  else if (dd == 25) elem.innerHTML = '"Education is the most powerful weapon which you can use to change the world. <b>– Nelson Mandela</b>"';
+  else if (dd == 26) elem.innerHTML = '"I agree that a love of reading is a great gift for a parent to pass on to his or her child. <b>– Ann Brashares</b>"';
+  else if (dd == 27) elem.innerHTML = '"To me education is a leading out of what is already there in the pupil’s soul. <b> ― Muriel Spark </b>"';
+  else if (dd == 28) elem.innerHTML = '"<b>Education is the ability to meet life’s situations.</b> - Dr. John G. Hibben"';
+  else if (dd == 29) elem.innerHTML = '"Learning starts with failure; the first failure is the beginning of education.<b> – John Hersey</b>"';
+  else if (dd == 30) elem.innerHTML = '"Intelligence plus character-that is the goal of true education.<b> – Martin Luther King Jr.</b>"';
+  else if (dd == 31) elem.innerHTML = '"The whole purpose of education is to turn mirrors into windows. <b>– Sydney J. Harris</b>"';
+</script>
+{% endblock body %}

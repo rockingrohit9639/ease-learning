@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %} {{ post.title|slice:"0:20" }}
+{% endblock title %}
+
+
+{% block body %}
+
+<style>
+    .post-links a{
+        color: #FF0035;
+        text-decoration: none;
+    }
+
+    .post-links a:hover{
+        color: #c9173a;
+    }
+</style>
+
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-8">
+            <h1>{{ post.title }}</h1>
+            <h6>{{ post.subtitle }}</h6>
+            <p class="mt-4">{{ post.description|safe }}</p>
+        </div>
+        <div class="col-md-4">
+            <h5 class="bg-dark p-2 text-white">All Posts</h5>
+            {% for p in allPosts %}
+            <div class="post-links pl-2">
+                <a href="{{ p.slug }}"> {{ p.title}} </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock body %}
