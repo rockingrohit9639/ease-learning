@@ -35,5 +35,9 @@ urlpatterns = [
     path('blog/<slug:slug>', views.post, name="Blog Post"),
     path('add_post', views.add_post, name="Add New Blog Post View"),
     path('add_new_post', views.add_new_post, name="Add New Post"),
+    path('admin_panel', views.admin_panel, name="Admin Panel"),
+    path('edit_page/<slug:slug>', views.edit_page, name="Editing Page "),
+    path('edit_post', views.edit_post, name="Edit Post"),
+    path('delete/<slug:slug>', views.delete, name="Delete Post"),
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse, redirect, HttpResponseRedirect
+from django.shortcuts import render, redirect, HttpResponseRedirect
 from .models import *
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.models import User
@@ -58,7 +58,10 @@ def hande_login(request):
         user = authenticate(request, username=username, password=passw)
         if user is not None:
             login(request, user)
-            return redirect(next)
+            if next == "/search":
+                return redirect('/')
+            else:
+                return redirect(next)
         else:
             return redirect(request.path)
     return redirect('/')
@@ -83,9 +86,12 @@ def handle_signup(request):
 
 def handle_logout(request):
     n = request.META.get('HTTP_REFERER')
-    logout(request)
 
-    return HttpResponseRedirect(n)
+    logout(request)
+    if n == "http://127.0.0.1:8000/admin_panel":
+        return redirect('/')
+    else:
+        return HttpResponseRedirect(n)
 
 
 def search(request):
@@ -104,6 +110,7 @@ def blog(request):
         "posts":all_posts,
     }
     return render(request, 'blog.html', context)
+
 
 def post(request, slug):
     post = Blog.objects.get(slug=slug)
@@ -130,3 +137,44 @@ def add_new_post(request):
     new_post.save()
 
     return redirect('/')
+
+def admin_panel(request):
+    user_name = request.user
+    user = User.objects.get(username=user_name)
+    posts = Blog.objects.filter(user=user)
+    context = {
+        "posts":posts,
+    }
+    return render(request, 'admin.html', context)
+
+
+def edit_page(request, slug):
+    post = Blog.objects.get(slug=slug)
+    context = {
+        "post":post,
+    }
+    return render(request, 'edit_page.html', context)
+
+
+def edit_post(request):
+    new_title = request.GET['title']
+    new_sub_title = request.GET['subutitle']
+    new_desc = request.GET['desc']
+    new_slug = request.GET['slug']
+    user_name = request.GET['user']
+    id = request.GET['id']
+    user = User.objects.get(username=user_name)
+    post = Blog.objects.get(id=id)
+    post.title = new_title
+    post.subtitle = new_sub_title
+    post.description = new_desc
+    post.slug = new_slug
+    post.user = user
+    post.save()
+
+    return redirect('/admin_panel')
+
+def delete(request, slug):
+    post = Blog.objects.get(slug=slug)
+    post.delete()
+    return redirect('/admin_panel')

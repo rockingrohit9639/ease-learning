@@ -28,7 +28,7 @@
   <div class="card-body">
     <a href="blog/{{ post.slug }}" class="title"><h5 class="card-title">{{ post.title }}</h5></a>
     <h6> {{ post.subtitle }} </h6>
-    <p class="card-text">{{  post.description|slice:"0:100|safe" }}</p>
+    <p class="card-text">{{  post.description|slice:"0:100"|safe }}</p>
     <a href="blog/{{ post.slug }}" class="btn btn-danger">Know More</a>
   </div>
 </div>
