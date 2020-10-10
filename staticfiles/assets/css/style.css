@@ -1,0 +1,72 @@
+:root {
+    --primary-color: #FF0035;
+    --secondary-color: #D6EFFF;
+    --text-color : rgb(24, 20, 20);
+    --bg-color : #FFF;
+}
+
+.nav-item{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.nav-item a{
+    padding: 15px;
+    color: var(--text-color);
+}
+
+.nav-item a:hover{
+    color: var(--primary-color);
+    transition: 0.2s all;
+}
+
+.active a{
+    color: var(--primary-color);
+}
+
+#logo{
+    font-size: 30px;
+    font-weight: 800;
+    color: black;
+}
+
+.navbar{
+    background-color: var(--bg-color);
+}
+
+.fa-facebook{
+    font-size: 30px;
+    color: white;
+    padding: 20px;
+    border-radius: 50%;
+}
+
+.fa-instagram{
+    font-size: 30px; 
+    color: white;
+    padding: 20px;
+    padding-right: 22px;
+    border-radius: 50%;
+}
+
+.fa-linkedin{
+    font-size: 30px; 
+    color: white;
+    padding: 20px;
+    border-radius: 50%;
+}
+
+.footer-copyright p{
+    color: var(--primary-color);
+    margin-bottom: 0;
+}
+
+.light .navbar-toggler {
+    color: rgba(0,0,0,.5);
+    border-color: rgba(0,0,0,.1);
+}
+
+footer{
+    background-color: black;
+}
+
