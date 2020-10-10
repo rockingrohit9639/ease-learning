@@ -5,7 +5,7 @@ It is a website which has various resources related to study. You can find vario
 The prerequisites to use this project in your system are - 
 - Python
 - Django
-
+<br>
 To install Django in your system just type the following command in your system
 ```ssh
 pip install django
