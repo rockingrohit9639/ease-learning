@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, HttpResponseRedirect
 from .models import *
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.models import User
+from django.contrib import messages
 
 
 def index(request):
@@ -27,12 +28,18 @@ def get_resources(request, sem):
 
 
 def add_requirements(request):
-    name = request.GET['name']
-    email = request.GET['email']
-    req = request.GET['req']
-    new_req = User_Requirements(name=name, email=email, resource=req)
-    new_req.save()
-    return redirect(request.path)
+    n = request.META.get('HTTP_REFERER')
+    name = request.GET.get('name')
+    email = request.GET.get('email')
+    req = request.GET.get('req')
+    try:
+        new_req = User_Requirements(name=name, email=email, resource=req)
+        new_req.save()
+        messages.success(request, 'Your requirements has been sent to us successfully!')
+        return HttpResponseRedirect(n)
+    except Exception as e:
+        messages.info(request, e)
+        return HttpResponseRedirect(n)
 
 
 def about(request):
@@ -41,13 +48,14 @@ def about(request):
 
 
 def feedback(request):
-    name = request.GET['name']
-    email = request.GET['email']
-    feedback = request.GET['feedback']
+    n = request.META.get('HTTP_REFERER')
+    name = request.GET.get('name')
+    email = request.GET.get('email')
+    feedback = request.GET.get('feedback')
     new_feed = Feedbacks(name=name, email=email, feedback=feedback)
     new_feed.save()
-
-    return redirect(request.path)
+    messages.success(request, "Thanks for giving your feedback.")
+    return HttpResponseRedirect(n)
 
 
 def hande_login(request):
@@ -57,13 +65,18 @@ def hande_login(request):
         next = request.POST.get('next', '/')
         user = authenticate(request, username=username, password=passw)
         if user is not None:
+            messages.success(request, "Login Successfully!!")
             login(request, user)
             if next == "/search":
                 return redirect('/')
             else:
                 return redirect(next)
         else:
-            return redirect(request.path)
+            messages.error(request, "Sorry!! Username or password does not match.")
+            if next == "/search":
+                return redirect('/')
+            else:
+                return redirect(next)
     return redirect('/')
 
 
@@ -76,12 +89,16 @@ def handle_signup(request):
         passw = request.POST['password']
         next = request.POST.get('next', '/')
 
-        user = User.objects.create_user(username=uname, email=email, password=passw)
-        user.first_name = fname
-        user.last_name = lname
-        user.save()
-
-    return redirect(next)
+        try:
+            user = User.objects.create_user(username=uname, email=email, password=passw)
+            user.first_name = fname
+            user.last_name = lname
+            user.save()
+            messages.success(request, "You have been signed up successfully. You can login now.")
+            return redirect(next)
+        except Exception as e:
+            print(e)
+            return redirect(next)
 
 
 def handle_logout(request):
@@ -89,8 +106,10 @@ def handle_logout(request):
 
     logout(request)
     if n == "http://127.0.0.1:8000/admin_panel":
+        messages.success(request, "Successfully Logged out.")
         return redirect('/')
     else:
+        messages.success(request, "Successfully Logged out.")
         return HttpResponseRedirect(n)
 
 
@@ -125,18 +144,21 @@ def post(request, slug):
 def add_post(request):
     return render(request, 'new_post.html')
 
+
 def add_new_post(request):
     title = request.GET['title']
-    sub_title = request.GET['subutitle']
+    sub_title = request.GET['subtitle']
     desc = request.GET['desc']
     slug = request.GET['slug']
     user_name = request.GET['user']
     user = User.objects.get(username=user_name)
+    print(title)
 
     new_post = Blog(title=title, subtitle=sub_title, description=desc, slug=slug, user=user)
     new_post.save()
 
     return redirect('/')
+
 
 def admin_panel(request):
     user_name = request.user
@@ -172,9 +194,12 @@ def edit_post(request):
     post.user = user
     post.save()
 
+    messages.success(request, "Post has been edited successfully.")
     return redirect('/admin_panel')
+
 
 def delete(request, slug):
     post = Blog.objects.get(slug=slug)
     post.delete()
+    messages.info(request, "Post deleted successfully.")
     return redirect('/admin_panel')
