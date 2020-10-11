@@ -20,13 +20,15 @@
                 <input class="form-control" type="text" name="subtitle" id="subtitle" placeholder="Subtitle of Post" required>
 
                 <label for="desc">Description</label>
-                <textarea name="desc" id="desc" rows="20" class="form-control" placeholder="Description of Post" required></textarea>
+                <textarea name="desc" id="desc" rows="10" class="form-control" placeholder="Description of Post" required></textarea>
 
                 <label for="slug">Slug</label>
                 <input name="slug" id="slug" type="text" placeholder="Slug of Post" class="form-control" required>
                 <p class="text-muted">Should be a proper slug format</p>
 
                 <input type="hidden" value="{{ request.user }}">
+
+                <p>For better text formatting options. Add this post temporarily. Then go to &rarr; Admin Panel &rarr; Edit</p>
 
                 <button type="submit" class="btn btn-danger mt-3">Add Post</button>
             </form>
@@ -37,7 +39,7 @@
 </div>
 
 
-<script>
+<!-- <script>
     tinymce.init({
       selector: '#desc',
       plugins: [
@@ -48,5 +50,5 @@
     ],
       toolbar_mode: 'floating',
     });
-</script>
+</script> -->
 {% endblock body %}
