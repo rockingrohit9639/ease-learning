@@ -36,7 +36,6 @@
             </div>
           </div>
         </div>
-
       </div>
         {% endfor %}
 </div> -->
@@ -52,19 +51,21 @@
           </button>
         </h2>
       </div>
+      <div id="collapse{{ course.id }}" class="collapse show" aria-labelledby="heading{{ course.id }}" data-parent="#accordion{{ course.id }}">
+        <div class="card-body">
+          <ul class="list-group">
+            {% for sem in semesters %}
+            {% if sem.course.name == course.name %}
+            <li class="list-group-item"><a href="getresources/{{ sem.id }}">{{ sem.semester }}</a></li>
+            {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div id="collapse{{ course.id }}" class="collapse show" aria-labelledby="heading{{ course.id }}" data-parent="#accordion{{ course.id }}">
-    <div class="card-body">
-      <ul class="list-group">
-        {% for sem in semesters %}
-        {% if sem.course.name == course.name %}
-        <li class="list-group-item"><a href="getresources/{{ sem.id }}">{{ sem.semester }}</a></li>
-        {% endif %}
-        {% endfor %}
-      </ul>
-    </div>
+  
     {% endfor %}
 </div>
 
