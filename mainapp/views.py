@@ -146,11 +146,11 @@ def add_post(request):
 
 
 def add_new_post(request):
-    title = request.get('title')
+    title = request.GET.get('title')
     sub_title = request.get('subtitle')
-    desc = request.get('desc')
-    slug = request.get('slug')
-    user_name = request.get('user')
+    desc = request.GET.get('desc')
+    slug = request.GET.get('slug')
+    user_name = request.GET.get('user')
     user = User.objects.get(username=user_name)
     print(title)
 
