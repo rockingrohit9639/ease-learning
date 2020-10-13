@@ -19,6 +19,8 @@ class Semesters(models.Model):
         return self.semester + " " + self.course.name
 
 
+
+
 class Resources(models.Model):
     name = models.CharField(max_length=50)
     subject = models.CharField(max_length=50)
