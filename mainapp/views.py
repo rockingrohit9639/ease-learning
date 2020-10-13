@@ -150,9 +150,7 @@ def add_new_post(request):
     sub_title = request.GET.get('subtitle')
     desc = request.GET.get('desc')
     slug = request.GET.get('slug')
-    user_name = request.GET.get('user')
-    print(user_name)
-    print(request.user)
+    user_name = request.user
     user = User.objects.get(username=user_name)
 
 
