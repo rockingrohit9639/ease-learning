@@ -3,6 +3,7 @@ from .models import *
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.models import User
 from django.contrib import messages
+from django.utils.text import slugify
 
 
 def index(request):
@@ -149,11 +150,11 @@ def add_new_post(request):
     title = request.GET.get('title')
     sub_title = request.GET.get('subtitle')
     desc = request.GET.get('desc')
-    slug = request.GET.get('slug')
+    slug = slugify(title)
+    print(slug)
     user_name = request.user
     user = User.objects.get(username=user_name)
-    next = request.POST.get('next', '/')
-    print(next)
+    n = request.META.get('HTTP_REFERER')
 
     new_post = Blog(title=title, subtitle=sub_title, description=desc, slug=slug, user=user)
     new_post.save()

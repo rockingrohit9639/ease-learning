@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
 class Courses(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=50)
@@ -53,7 +54,7 @@ class Blog(models.Model):
     title = models.CharField(max_length=200)
     subtitle = models.CharField(max_length=100)
     description = models.TextField()
-    slug = models.SlugField(max_length=60, unique=True, default="")
+    slug = models.SlugField(max_length=60, unique=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     date = models.DateTimeField(auto_now_add=True)
 
