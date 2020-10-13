@@ -151,8 +151,10 @@ def add_new_post(request):
     desc = request.GET.get('desc')
     slug = request.GET.get('slug')
     user_name = request.GET.get('user')
+    print(user_name)
+    print(request.user)
     user = User.objects.get(username=user_name)
-    print(title)
+
 
     new_post = Blog(title=title, subtitle=sub_title, description=desc, slug=slug, user=user)
     new_post.save()
