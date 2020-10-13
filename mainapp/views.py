@@ -151,15 +151,19 @@ def add_new_post(request):
     sub_title = request.GET.get('subtitle')
     desc = request.GET.get('desc')
     slug = slugify(title)
-    print(slug)
     user_name = request.user
     user = User.objects.get(username=user_name)
     n = request.META.get('HTTP_REFERER')
 
-    new_post = Blog(title=title, subtitle=sub_title, description=desc, slug=slug, user=user)
-    new_post.save()
+    try:
+        new_post = Blog(title=title, subtitle=sub_title, description=desc, slug=slug, user=user)
+        new_post.save()
+        messages.success(request, "Post Has been added successfully!!")
+        return HttpResponseRedirect(n)
 
-    return redirect('/')
+    except Exception as e:
+        messages.error(request, e)
+        return HttpResponseRedirect(n)
 
 
 def admin_panel(request):
