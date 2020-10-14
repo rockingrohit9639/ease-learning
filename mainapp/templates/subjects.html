@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block title %} Subjects {% endblock title %}
+
+{% block body %}
+
+<style>
+    .list-group a{
+        text-decoration: none;
+    }
+</style>
+
+<div class="container mb-4">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">Resources</li>
+          <li class="breadcrumb-item disable">Subjects</li>
+        </ol>
+      </nav>
+
+      {% if subjects|length == 0 %}
+      <div class="row">
+        <div class="col md-12">
+            <hr>
+            <h1 class="text-center">Sorry we could not find any resources for you.</h1>
+        </div>
+
+        <div class="col-md-12">
+                {% if user.is_authenticated %}
+                <div class="text-center">
+                    <p class="d-inline-block text-muted">Please Tell Us What You Need.</p>
+                </div>
+                <div class="align-items-center">
+                    <div class="container justify-content-center">
+                    <form id="req_form" name="req_form" action="add_requirements" method="GET">
+                        <input type="text" id="name" name='name' class="form-control my-2" placeholder="Your name" required width="10">
+            
+                        <input type="text" id="email" name='email' placeholder="Your email id" class="form-control my-2" required>
+            
+                        <textarea type="text" id="req" name='req' rows="2" class="form-control md-textarea" placeholder="Your requirements." required></textarea>
+            
+                        <br>
+                        <button class="btn btn-danger mb-4">Submit</button>
+                    </form>
+                    </div>
+                </div>
+                {% else %}
+                    <h3 class="text-muted text-center">Please LogIn or SignUp to send us your requirements.</h3>
+                {% endif %}
+        </div>
+    </div>
+      {% else %}
+      <div class="row">
+        <div class="col-md-12">
+          <ul class="list-group">
+              {% for subject in subjects %}
+              <a href="{% url 'Get Resources' sub=subject.id %}"><li class="list-group-item">{{ subject.name }}</li></a>
+              {% endfor %}
+            </ul>
+        </div>
+    </div>
+      {% endif %}
+
+</div>
+
+
+{% endblock body %}

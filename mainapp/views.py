@@ -20,8 +20,8 @@ def resources(request):
     return render(request, 'resources.html', context)
 
 
-def get_resources(request, sem):
-    all_res = Resources.objects.filter(sem=sem)
+def get_resources(request, sub):
+    all_res = Resources.objects.filter(sub=sub)
     context = {
         "resources":all_res,
     }
@@ -209,3 +209,12 @@ def delete(request, slug):
     post.delete()
     messages.info(request, "Post deleted successfully.")
     return redirect('/admin_panel')
+
+
+def subjects(request, sem):
+    all_subs = Subject.objects.filter(semester=sem)
+    context = {
+        "subjects":all_subs,
+    }
+
+    return render(request, 'subjects.html', context)

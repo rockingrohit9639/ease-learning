@@ -25,7 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name="Hompage"),
     path('resources', views.resources, name="Resources"),
-    path('getresources/<str:sem>', views.get_resources, name="Get Resources"),
+    path('getresources/<str:sub>', views.get_resources, name="Get Resources"),
     path('add_requirements', views.add_requirements, name="Add Requirements"),
     path('about', views.about, name="About Us"),
     path('feedback', views.feedback, name="Feedback"),
@@ -41,6 +41,7 @@ urlpatterns = [
     path('edit_page/<slug:slug>', views.edit_page, name="Editing Page "),
     path('edit_post', views.edit_post, name="Edit Post"),
     path('delete/<slug:slug>', views.delete, name="Delete Post"),
+    path('subjects/<str:sem>', views.subjects, name="Show Subjects"),
 
     url(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
     url(r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT}),
