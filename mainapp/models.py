@@ -19,12 +19,19 @@ class Semesters(models.Model):
         return self.semester + " " + self.course.name
 
 
+class Subject(models.Model):
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=40)
+    semester = models.ForeignKey(Semesters, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
 
 
 class Resources(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=50)
-    subject = models.CharField(max_length=50)
+    sub = models.ForeignKey(Subject, on_delete=models.CASCADE, null=True)
     file = models.FileField(null=True)
     sem = models.ForeignKey(Semesters, on_delete=models.CASCADE, default=None)
     course = models.ForeignKey(Courses, on_delete=models.CASCADE, default=None)
