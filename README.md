@@ -1,4 +1,4 @@
-# Ease Learning - A Study Resource Webiste
+# Ease Learning - A Study Resource Website
 It is a website which has various resources related to study. You can find various notes and books of many subjects here.
 
 ## Prerequisite
