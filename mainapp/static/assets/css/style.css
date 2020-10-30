@@ -5,6 +5,19 @@
     --bg-color : #FFF;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bree+Serif&family=Fredoka+One&family=Merriweather:wght@700&family=Parisienne&display=swap');
+
+
+*{
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Archivo Black', sans-serif;
+}
+
+nav{
+    position: fixed;
+}
+
 .nav-item{
     font-size: 20px;
     font-weight: 500;
@@ -37,29 +50,23 @@
 .fa-facebook{
     font-size: 30px;
     color: white;
-    padding: 20px;
-    border-radius: 50%;
 }
 
 .fa-instagram{
     font-size: 30px; 
     color: white;
-    padding: 20px;
-    padding-right: 22px;
-    border-radius: 50%;
 }
 
 .fa-linkedin{
     font-size: 30px; 
     color: white;
-    padding: 20px;
-    border-radius: 50%;
 }
 
+
 .footer-copyright p{
-    color: var(--primary-color);
     margin-bottom: 0;
 }
+
 
 .light .navbar-toggler {
     color: rgba(0,0,0,.5);
@@ -67,6 +74,7 @@
 }
 
 footer{
-    background-color: black;
+    background: #000000;
 }
+
 

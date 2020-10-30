@@ -4,6 +4,14 @@
 
 {% block body %}
 <style>
+
+    body{
+        background: url("../static/assets/img/bg5.jpg");
+        background-attachment: fixed;
+        background-size: cover;
+    }
+
+
     .list-group-item a{
         text-decoration: none;
         color: #000;
@@ -11,9 +19,25 @@
     .list-group-item a:hover{
       color: blueviolet;
     }
+
+
 </style>
 
-<div class="container">
+<div class="container-fluid mb-2 p-4" id="resource_header">
+    <div class="row mt-3">
+        <div class="col-md-12 text-center">
+            <h1 class="text-center">Resources</h1>
+            <div class="d-flex justify-content-center mb-2">
+                <hr class="w-25">
+                <i class="fa fa-star" style="font-size: 2rem" aria-hidden="true"></i>
+                <hr class="w-25">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container mt-2">
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item">Resources</li>
@@ -45,10 +69,10 @@
     {% endfor %}
 </div>
 
-<section class="page-section" id="requirements">
+<section class="page-section" id="requirements" style="margin-top: 2rem">
     <div class="text-center">
-        <h2 class="page-section-heading d-inline-block mb-0">Need More Resources?</h2><br>
-        <p class="d-inline-block text-muted">Feel free to tell us.</p>
+        <h2 class="page-section-heading d-inline-block mb-0 text-white">Need More Resources?</h2><br>
+        <p class="d-inline-block text-white">Feel free to tell us.</p>
     </div>
 
     <div class="align-items-center">
@@ -63,10 +87,10 @@
             <textarea type="text" id="req" name='req' rows="2" class="form-control md-textarea" placeholder="Your requirements." required></textarea>
 
             <br>
-            <button class="btn btn-primary mb-4">Submit</button>
+            <button class="btn btn-danger mb-4">Submit</button>
         </form>
         {% else %}
-        <h4 class="text-center mb-5">Please Login or SingUp to send us your requirements.</h4>
+        <h4 class="text-center mb-5" style="color: #ff0035">Please Login or SingUp to send us your requirements.</h4>
         {% endif %}
         </div>
     </div>

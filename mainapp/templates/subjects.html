@@ -3,13 +3,22 @@
 
 {% block body %}
 
+
 <style>
     .list-group a{
         text-decoration: none;
     }
+    body{
+        background-image: url("../static/assets/img/bg.png");
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
 </style>
 
-<div class="container mb-4">
+<div class="container mb-4 mt-2" style="height: 100vh">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item">Resources</li>
@@ -21,13 +30,13 @@
       <div class="row">
         <div class="col md-12">
             <hr>
-            <h1 class="text-center">Sorry we could not find any resources for you.</h1>
+            <h1 class="text-center text-white">Sorry we could not find any resources for you.</h1>
         </div>
 
         <div class="col-md-12">
                 {% if user.is_authenticated %}
                 <div class="text-center">
-                    <p class="d-inline-block text-muted">Please Tell Us What You Need.</p>
+                    <p class="d-inline-block text-white">Please Tell Us What You Need.</p>
                 </div>
                 <div class="align-items-center">
                     <div class="container justify-content-center">

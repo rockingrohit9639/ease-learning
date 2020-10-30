@@ -16,7 +16,27 @@
         color: #c9173a;
     }
 
+     #blog_header{
+        background-image: url("../static/assets/img/blog-header.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+
 </style>
+
+<div class="container-fluid mb-2 p-4" id="blog_header">
+    <div class="row mt-3">
+        <div class="col-md-12 text-center">
+            <h1 class="text-center text-white">Blog</h1>
+            <div class="d-flex justify-content-center mb-2">
+                <hr class="w-25" color="white">
+                <i class="fa fa-star text-white" style="font-size: 2rem" aria-hidden="true"></i>
+                <hr class="w-25" color="white">
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="container mt-5 mb-5">
 {% for post in posts %}

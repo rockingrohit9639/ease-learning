@@ -4,21 +4,43 @@
 {% load static %}
 {% block body %} 
 
-<div class="container">
+<style>
+    body{
+        background-image: url("../static/assets/img/bg-about.jpg");
+        background-attachment: fixed;
+    }
+
+    #about_header{
+        background-image: url("../static/assets/img/about-header.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+</style>
+
+<div class="container-fluid mb-2 p-4" id="about_header">
     <div class="row mt-3">
         <div class="col-md-12 text-center">
-            <h1>About Us</h1>
-            <hr>
-            <p>The thought of creating this website came in my mind when I was finding difficulties in searching for the resources like books and notes for my studies.
-              The idea of this website is simple but the aim behind it is big i.e. to available all the study resources to all the students at one place. So their time should not be wasted. 
+            <h1 class="text-white">About Us</h1>
+            <div class="d-flex justify-content-center mb-2">
+                <hr class="w-25" color="white">
+                <i class="fa fa-star text-white" style="font-size: 2rem" aria-hidden="true"></i>
+                <hr class="w-25" color="white">
+            </div>
+            <p class="text-white">The thought of creating this website came in my mind when I was finding difficulties in searching for the resources like books and notes for my studies.
+              The idea of this website is simple but the aim behind it is big i.e. to available all the study resources to all the students at one place. So their time should not be wasted.
             </p>
         </div>
     </div>
+</div>
+
+
+<div class="container">
     <div class="row">
         <div class="col-md-12">
             <h1 class="text-center mt-4">Meet Some Faces</h1>
             <hr class="w-75 mb-5">
-            <div class="card mb-3 style="max-width: 540px;"">
+            <div class="card mb-3">
                 <div class="row no-gutters">
                   <div class="col-md-4">
                     <img src="{% static 'assets/img/dp1.jpg' %}" class="card-img" alt="Image1">
@@ -41,7 +63,7 @@
 
     <div class="row">
         <div class="col-md-12">
-            <div class="card mb-3 style="max-width: 540px;"">
+            <div class="card mb-3">
                 <div class="row no-gutters">
                   <div class="col-md-8">
                     <div class="card-body">
@@ -103,11 +125,8 @@
                 </form>
                 </div>
             </div>
-            <hr>
     </div>
     </div>
-
-
 </div>
 
 {% endblock body %}

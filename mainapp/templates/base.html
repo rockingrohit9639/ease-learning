@@ -74,6 +74,7 @@
       <input class="form-control mr-sm-2" type="search" id="qry" name="qry" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Search</button>
     </form>
+
     <!-- Modal Login-->
     <div class="modal fade" id="modalLogin" data-backdrop="static" data-keyboard="false" tabindex="-1"
       aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -99,7 +100,7 @@
                 <label for="inputPassword">Password</label>
               </div>
               <button class="btn btn-lg btn-danger btn-block" type="submit">LogIn</button>
-              <p class="mt-5 mb-3 text-muted text-center">© 2020</p>
+              <p class="mt-5 mb-3 text-muted text-center">Does not have an account? <a data-dismiss="modal" aria-label="Close" data-toggle="modal" data-target="#modalSignUp" href="">SignUp</a></p>
             </form>
           </div>
         </div>
@@ -145,6 +146,7 @@
               </div>
               <button class="btn btn-lg btn-danger btn-block" type="submit">SignUp</button>
               <p class="mt-5 mb-3 text-muted text-center">We don't share your details with anyone.</p>
+              <p class="mt-5 mb-3 text-muted text-center">Already have an account? <a data-dismiss="modal" aria-label="Close" data-toggle="modal" data-target="#modalLogin" href="">Login</a></p>
             </form>
           </div>
         </div>
@@ -154,7 +156,7 @@
     </div>
   </nav>
 
-  <div class="container mt-3">
+  <div class="container">
     {% if messages %}
     {% for message in messages %}
     <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
@@ -174,23 +176,23 @@
     <div class="container d-flex justify-content-center pt-5">
       <div class="icon" style="margin-right: 10px">
         <a href="https://www.facebook.com/profile.php?id=100007325041744" target="_blank"><i
-            class="fa fa-facebook fa-lg pl-4 shadow"></i></a>
+            class="fa fa-facebook fa-lg pl-4"></i></a>
       </div>
       <div class="icon" style="margin-right: 10px">
-        <a href="https://www.instagram.com/" target="_blank"><i class="fa fa-instagram fa-lg pl-4 shadow"
+        <a href="https://www.instagram.com/" target="_blank"><i class="fa fa-instagram fa-lg pl-4"
             style="font-size: 30px"></i></a>
       </div>
       <div class="icon" style="margin-right: 10px">
         <a href="https://www.linkedin.com/in/rohit-kumar-saini/" target="_blank"><i
-            class="fa fa-linkedin fa-lg pl-4 shadow" style="font-size: 30px"></i></a>
+            class="fa fa-linkedin fa-lg pl-4" style="font-size: 30px"></i></a>
       </div>
     </div>
     <!-- Footer Elements -->
 
     <!-- Copyright -->
     <div class="footer-copyright">
-      <p class="text-center text-white pt-3 pb-3">
-        Made with &hearts; by <strong> Rohit Saini & Lalit Singh</strong>
+      <p class="text-center text-white pt-3 pb-3" style="font-family: 'Parisienne', cursive;">
+        Made with &hearts; by <strong style="font-family: 'Parisienne', cursive;"> Rohit Saini & Lalit Singh</strong>
       </p>
     </div>
     <!-- Copyright -->
