@@ -29,7 +29,7 @@ SECRET_KEY = 'xw6o%lmhm^$jemx5xlfv7))m^t4+&wmnf_-^_&&$&f40h7ph$('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1', "http://ease-learning.herokuapp.com/"]
 
 
 # Application definition
